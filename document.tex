@@ -1,0 +1,792 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{color,soul}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+		language=Python,
+		basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+		\pythonstyle
+		\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{multicol}
+
+\newenvironment{lemma}{\paragraph{Lemma:\hfill}}{}
+\newenvironment{proof}{\paragraph{Proof:\hfill}}{\hfill$\square$}
+\newenvironment{proofMathInduct}{\paragraph{Proof by Mathematical Induction:\hfill}}{\hfill$\square$}
+\newenvironment{proofMathInductStrong}{\paragraph{Proof by Mathematical Induction (Strong Form):\hfill}}{\hfill$\square$}
+\newenvironment{proofContradiction}{\paragraph{Proof by contradiction: \hfill}}{\hfill$\square$}
+
+\newenvironment{theorem}{\paragraph{Theorem:\hfill}}{\hfill}
+\newenvironment{definition}{\paragraph{Definition: }}{\hfill}
+
+\title{Linear Algebra Final Study Guide}
+\author{Andrew Reed}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+In the given material that follows in this study guide these definitions will be used multiple times throughout. As such let...
+\[
+\textbf{u} = 
+\begin{bmatrix}
+	u_{1}\\
+	u_{2}\\
+	\vdots \\
+	u_{k}
+\end{bmatrix}
+,
+\textbf{v} = 
+\begin{bmatrix}
+v_{1}\\
+v_{2}\\
+\vdots \\
+v_{k}
+\end{bmatrix}
+,
+\textbf{w} = 
+\begin{bmatrix}
+w_{1}\\
+w_{2}\\
+\vdots \\
+w_{k}
+\end{bmatrix}
+\]
+
+\newpage
+
+\section{Vectors}
+\subsection{The Geometry and Algebra of Vectors}
+
+\begin{definition}
+	Vector addiction is defined as such,
+	\[
+		\textbf{u} + \textbf{v} = [u_1 + v_1, u_2 + v_2, \dots, u_k + v_k]
+	\]
+\end{definition}
+
+\begin{definition}
+	Vector scalar Multiplication is defined as such, 
+	\[
+		c\textbf{u} = [c \times u_1, c \times u_2, \dots, c \times u_k]
+	\]
+\end{definition}
+
+\paragraph{Algebraic Properties of Vectors in $\mathcal{R}^n;$}
+\begin{enumerate}
+	\item $\textbf{u} + \textbf{v} = \textbf{v} + \textbf{u}$
+	\item $(\textbf{u} + \textbf{v}) + \textbf{w} = \textbf{u} + (\textbf{v} + \textbf{w})$
+	\item $\textbf{u} + 0 = \textbf{u}$
+	\item $\textbf{u} + (-\textbf{u}) = 0$
+	\item $c(\textbf{u} + \textbf{v}) = c \times \textbf{u} + c \times \textbf{v}$
+	\item $(c + d)\textbf{u} = c \times \textbf{u} + d \times \textbf{u}$
+	\item $c(d \times \textbf{u}) = cd \times \textbf{u}$
+	\item $1 \times \textbf{u} = \textbf{u}$
+\end{enumerate}
+
+\begin{definition}
+	\hl{A vector $\textbf{v}$ is a \textbf{linear combination} of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ if there are scalars, $c_1, c_2, \dots, c_k$ such that $\textbf{v} = c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k + \textbf{v}_k$.}
+\end{definition}
+
+\newpage
+
+\subsection{Length and Angle: The Dot Product}
+
+
+\begin{definition}
+	The dot product of two vectors $\textbf{u}$ and  $\textbf{v}$ is denoted  $\textbf{u} \cdot \textbf{v}$, and is defined by
+	\[
+		\textbf{u} \cdot \textbf{v} = u_1 \times v_1 +  u_2 \times v_2 + \dots +  u_k \times v_k
+	\]
+\end{definition}
+
+\begin{theorem}
+	Let $\textbf{u}, \textbf{v},$ and $\textbf{w}$ be vectors in $\mathcal{R}^n$ and let $c$ be a scalar. Then
+	
+	\begin{enumerate}
+		\item $\textbf{u} \cdot \textbf{v} = \textbf{v} \cdot \textbf{u}$
+		\item $\textbf{u} \cdot ( \textbf{v} + \textbf{w} ) = \textbf{u} \cdot \textbf{v} + \textbf{u} \cdot \textbf{w})$
+		\item $(c \cdot \textbf{u}) \cdot \textbf{v} =c \cdot (\textbf{u} \cdot \textbf{v})$
+		\item $\textbf{u} \cdot \textbf{u} \geq 0$
+		\item $\textbf{u} \cdot \textbf{u} = 0$ if and only if $\textbf{u} = \textbf{0}$
+	\end{enumerate}
+\end{theorem}
+
+
+\begin{definition}
+	\hl{The \textbf{length} (or \textbf{norm}) of a vector \textbf{v} in $\mathcal{R}^k$ is the non-negative scalar $||\textbf{v}||$ defined by}
+	\[
+		||\textbf{v}|| = \sqrt{\textbf{v} \cdot \textbf{v}} = 
+		\sqrt{\textbf{v}_1^2 + \textbf{v}_2^2 + \dots + \textbf{v}_k^2}
+	\]
+
+\end{definition}
+
+\begin{theorem}
+	let \textbf{v} be a vector in $\mathcal{R}^n$ and let $c$ be a scalar. Then;
+	
+	\begin{enumerate}
+		\item $||\textbf{v}|| = 0$ if and only if \textbf{v} = \textbf{0}
+		\item $||c \times \textbf{v}|| = |c| \times ||\textbf{v}||$
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+	The distance $d(\textbf{u}, \textbf{v})$ between \textbf{u} and \textbf{v} in $\mathcal{R}^n$ is defined
+	\[
+		d(\textbf{u}, \textbf{v}) = ||\textbf{u} - \textbf{v}||
+	\]
+\end{definition}
+
+
+\begin{definition}
+	For non-zero vectors \textbf{u} and \textbf{v} in $\mathcal{R}^n$,
+	\[
+		\cos \theta = 
+			\frac{\textbf{u} \cdot \textbf{v}}{||\textbf{u}|| \times ||\textbf{v}||}
+	\]
+\end{definition}
+
+
+\begin{definition}
+	\hl{Two vectors \textbf{u} and \textbf{v} in $\mathcal{R}^n$ are considered \textbf{orthogonal} to eachother if their dot product is equal to 0. Thus if the following holds true then \textbf{u} and \textbf{v} are orthogonal;}
+	\[
+		\textbf{u} \cdot \textbf{v} = 0
+	\]
+\end{definition}
+
+\begin{definition}
+	\hl{if \textbf{u} and \textbf{v} are vectors in $\mathcal{R}^n$ and $\textbf{u} \neq 0$, then the \textbf{projection of v onto u} is the vector $proj_u(v)$ defined by;}
+	\[
+	proj_u(v) = 
+	\left( 
+		\frac{\textbf{u} \cdot \textbf{v}}{\textbf{u} \cdot \textbf{u}} 
+	\right) \textbf{u}
+	\]
+\end{definition}
+\newpage
+
+
+\subsection{Lines and Planes}
+
+\newpage
+
+\section{Linear Systems}
+
+\subsection{Introduction to Systems of Linear Equations}
+\begin{definition}
+	A \textbf{Linear equation} in the $n$ variables $x_1, x_2, \dots, x_n$ is a equation that can be written in the form
+	\[
+	a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b
+	\]
+	
+	\hfill
+	\\
+	A system of linear equations with real coefficients has either
+	\begin{enumerate}
+		\item A unique solution (a consistent system)
+		\item Infinitely many solutions (a consistent system)
+		\item No solution (an inconsistent system)
+	\end{enumerate}
+\end{definition}
+
+\newpage
+\subsection{Direct Methods for Solving Linear Systems}
+
+\begin{definition}
+	A matrix is in \textbf{row echelon form} if it satisfies the following properties:
+	\begin{enumerate}
+		\item Any row consisting entirely of zeros are at the bottom.
+		\item In each non-zero row, the first non-zero entry(called the \textbf{leading entry}) is in a column to the left of any leading entries below.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	The following \textbf{elementary row operations} can be preformed on a matrix:
+	\begin{enumerate}
+		\item Interchange two rows
+		\item Multiply a row by a non-zero constant
+		\item Add a multiple of a row to another
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Matricies $A$ and $B$ are \textbf{row equivalent} if there is a sequence of elementary row operations that converts $A$ into $B$.
+\end{definition}
+
+\begin{theorem}
+	Given two matrices $A$ and $B$, $A$ and $B$ are row equivalent if and only if they can be reduced to te same row echelon form.
+\end{theorem}
+
+\paragraph{Gaussian Elimination}
+\begin{enumerate}
+	\item Write the augmented matrix of the system of linear equations.
+	\item Use elementary row operations to reduce the augmented matrix to a row echelon form.
+	\item Using back substitution, solve the equivalent system that corresponds to the row-reduced matrix.
+\end{enumerate}
+
+\begin{definition}
+	\hl{The \textbf{rank} of a matrix is the number of non-zero rows in its row echelon form.}
+\end{definition}
+
+\paragraph{The Rank Theorem}
+	\hfill
+	\\
+	Let $A$ be the coefficient matrix of a system of linear equations with $n$ variables. If the system is consistent, then\\
+	\indent number of free variables = $n - rank(A)$
+	
+\begin{definition}
+	A matrix is in \textbf{reduced row echelon form} if it satisfies the following properties:
+	\begin{enumerate}
+		\item It is in row echelon form.
+		\item The leading entry in each non-zero row is a 1 (called the \textbf{leading 1})
+		\item Each column containing a leading 1 has zeros everywhere else
+	\end{enumerate}
+\end{definition}
+	
+\paragraph{Gauss-Jordan Elimination}
+\begin{enumerate}
+	\item Write the augmented matrix of the system of linear equations
+	\item Use elementary row operations to reduce the augmented matrix to reduced row echelon form.
+	\item If the resulting system is consistent, solve for the leading variables in terms of any remaining free variables.
+\end{enumerate}
+
+\begin{definition}
+	A system of linear equations is called \textbf{homogeneous} if the constant in each term in each equation is zero.
+\end{definition}
+
+\begin{theorem}
+	\hfill
+	\\
+	\indent if $[A| \textbf{0}]$ is a homogeneous system of $m$ linear equations with $n$ variables, where $M < n$, then the system has infinitely many solutions.
+\end{theorem}
+
+\newpage
+
+\subsection{Spanning Sets and Linear Independence}
+\begin{theorem}
+	\hfill
+	\\
+	\indent 
+	A system of linear equations with augmented matrix $[A | textbf{b}]$ is consistent if and only if \textbf{b} is a linear combination of the columns of $A$.
+\end{theorem}
+
+\begin{definition}
+	\hfill
+	
+	\hl{
+		If $S = {\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k}$, is a set of vectors in $\mathcal{R}^n$, then the set of all linear combinations of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ is called a \textbf{span} of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ and denoted by $span(\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k)$ or $span(S) $.
+	
+		If $span(S) = \mathcal{R}^n$, then S is called the \textbf{spanning set} for $\mathcal{R}^n$.
+	}
+\end{definition}
+
+\begin{definition}
+	\hfill
+	
+	A set of vectors $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ is \textbf{linear dependent} if the scalars $c_1, c_2, \dots, c_k$, at least one of which is not zero, such that
+	\[
+		c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k \times \textbf{v}_k
+	\]
+	
+	A set of vectors that is not linearly dependent is called \textbf{linearly independent}
+\end{definition}
+
+\begin{theorem}
+	Vectors $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ in $\mathcal{R}^n$ are linearly dependent if and only if at least one of the vectors can be expressed as a linear combination of the others.
+\end{theorem}
+
+\begin{theorem}
+	let  $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ be vectors in $\mathcal{R}^n$ and let $A$ be the $n \times m$ matrix $[\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k]$ with these vectors as its columns. Then $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ are linearly dependent if and only if the homogeneous linear system with augmented matrix $[A| textbf{0}]$ has a nontrivial solution.
+\end{theorem}
+
+\begin{theorem}
+	Let $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_m$ be (row) vectors in $\mathcal{R}^n$ and let $A$ be the $m \times n$ matrix 
+	$
+		\begin{bmatrix}
+		v_{1}\\
+		v_{2}\\
+		\vdots \\
+		v_{m}
+		\end{bmatrix}
+	$ with these vectors as its rows. then $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_m$ are linearly dependent if and only if $rank(A) < m$.
+\end{theorem}
+
+\begin{theorem}
+	Any set of vectors in $\mathcal{R}^n$ is linearly dependent if $m > n$
+\end{theorem}
+
+\newpage
+
+\section{Matrices}
+\subsection{Matrix Operations}
+
+\begin{definition}
+	A \textbf{matrix} is a rectangular array of numbers called the \textbf{entries}, or \textbf{elements}, of the matrix.
+\end{definition}
+
+\begin{definition}
+	If $A$ is a $m \times n$ matrix and $B$ is an $n \times r$ matrix, then the \textbf{product} $C = AB$ is an $m \times r$ matrix. The $(i, j)$ entry of the product is computed as follows:
+	\[
+		c_{i,j} = a_{i,j} \times b_{1,j} + a_{i,2} \times b_{2, j} + \dots + a_{i,n} \times b_{n,j}
+	\]
+\end{definition}
+
+\begin{theorem}
+	\hfill
+	\\
+	
+	Let $A$ be an $m \times n$ matrix, $\textbf{e}_i$ a $1 \times m$ standard unit vector. Then
+	\begin{enumerate}
+		\item $\textbf{e}_i A$ is the $i$th row of $A$.
+		\item $A \textbf{e}_j$ is the $j$th columns of $A$.
+	\end{enumerate}
+\end{theorem}
+
+\paragraph{Matrix Powers}
+If $A$ is a square matrix and $r$ and $s$ are non-negative integers, then
+\begin{enumerate}
+	\item $A^rA^s = A^{r + s}$
+	\item $(A^r)^s = A^{r \times s}$
+\end{enumerate}
+
+\begin{definition}
+	\hfill
+	\\
+	The \textbf{transpose} of an $m \times n$ matrix $A$ is the $n \times m$ matrix $A^T$ obtained by interchanging the rows and columns of $A$.that is, the $i$th column of $A^T$ is the $i$th row of $A$ for all $i$.
+\end{definition}
+
+\begin{definition}
+	A square matrix $A$ is \textbf{symmetric} if $A^T = A$ that is, if $A$ is equal to its own transpose.
+\end{definition}
+
+\subsection{Matrix Algebra}
+
+\begin{theorem}
+	\paragraph{Algebraic Properties of Matrix Addition and Scalar Multiplication}
+	The $A, B$ and $C$ be matrices of the same size and let $c$ and $d$ be scalars. Then
+	\begin{enumerate}
+		\item $A + B = B + A$
+		\item $(A+B) + C = A + (B + C)$
+		\item $A + O = A$
+		\item $A + (-A) = O$
+		\item $c(A + B) = cA + cB$
+		\item $(c + d) A = cA + dA$
+		\item $c(dA) = (cd)A$
+		\item $1 \times A = A$
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	\hfill
+	\\
+	
+	Let $A, B$, and $C$ be matrices (whose sizes are such that the indicated operations can be preformed) and let $k$ be a scalar. Then
+	\begin{enumerate}
+		\item $A(BC) = (AB)C$
+		\item $A(B+C) = AB + AC$
+		\item $(A+B)C = AC + BC$
+		\item $k(AB) = (kA)B = A(kB)$
+		\item $I_mA = A = AI_n$ if $A$ is $m \times n$
+	\end{enumerate}
+\end{theorem}
+
+\hfill 
+\\
+\begin{theorem}
+		\paragraph{Properties of the Transpose}
+		
+		let $A$ and $B$ be matrices (whose sizes are such that the indicated operations can be preformed) and let $k$ be a scalar. Then
+		
+		\begin{enumerate}
+			\item $(A^T)^T = A$
+			\item $(kA)^T = k(A^T)$
+			\item $(A^r)^T = (A^T)^r$ for all non-negative integers $r$
+			\item $(A + B)^T = T^T + B^T$
+			\item $(AB)^T = B^T A^T$ 
+		\end{enumerate} 
+\end{theorem}
+
+
+\begin{theorem}
+	\begin{enumerate}
+		\item If $A$ is a square matrix, then $A + A^T$ is a symmetric matrix.
+		\item For any matrix $A, AA^T$ and $A^TA$ are symmetric matrices.
+	\end{enumerate}
+\end{theorem}
+
+\subsection{The Inverse of a Matrix}
+
+\begin{definition}
+	If $A$ is an $n \times n$ matrix, an \textbf{inverse} of $A$ is an $n \times n$ matrix $A\prime$ with the property that
+	\[
+		AA\prime = I
+	\]
+	and
+	\[
+		A\prime A = I
+	\]
+	where $I = I_n$ is the $n \times n$ identity matrix. If such an $A \prime$ exists, then A is called invertible.
+\end{definition}
+
+\begin{theorem}
+	If $A$ is an invertible matrix, then its inverse is unique.
+\end{theorem}
+
+\begin{theorem}
+	If $A$ is an invertible $n \times n$ matrix, then the system of linear equations given $A\textbf{x} = \textbf{b}$ has the unique solution $\textbf{x} = A^{-1}\textbf{b}$ for any \textbf{b} in $\mathcal{R}^n$
+\end{theorem}
+
+\begin{theorem}
+	If $A = 
+		\begin{bmatrix}
+			a & b\\
+			c & d\\
+		\end{bmatrix}
+	$, then $A$ is invertible if $ad - bc \neq 0$, in which case
+	\[
+		A^{-1} = \frac{1}{ad - bc } 
+		\begin{bmatrix}
+			d & -b\\
+			-c & a\\
+		\end{bmatrix}
+	\]
+	If $ad - bc = 0$, then $A$ is not invertible.
+\end{theorem}
+
+\begin{theorem}
+	\begin{enumerate}
+		\item If $A$ is an invertible matrix, then $A^{-1}$ is invertible and
+		\[
+			(A^{-1})^{-1}
+		\]
+		\item If $A$ is an invertible matrix and $c$ is a non-zero scalar, then $cA$ is an invertable matrix and
+		\[
+			(cA)^{-1} = \frac{1}{c}A^{-1}
+		\]
+		\item If $A$ and $B$ are invertible matricies of the same size, then $AB$ is invertible and 
+		\[
+			(AB)^{-1} = B^{-1} A^{-1}
+		\]
+		\item If $A$ is an invertible matrix, then $A^T$ is invertible and
+		\[
+			(A^T)^{-1} = (A^{-1})^T
+		\]
+		\item if $A$ is an invertible matrix, then $A^n$ is invertible for all non-negative integers $n$ and 
+		\[
+			(A^n)^{-1} = (A^{-1})^n
+		\]
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+	If $A$ is an invertible matrix and $n$ is a positive integer, then $A^{-n}$ is defined by
+	\[
+		A^{-n} = (A^{-1})^n = (A^n)^{-1}
+	\]
+\end{definition}
+
+\begin{definition}
+	An \textbf{elementary matrix} is any that can be obtained by performing an elementary row operation on an identity matrix.
+\end{definition}
+
+\begin{theorem}
+	Let $E$ be the elementary matrix obtained bt preforming an elementary row operation on $I_n$. if the same elementary row operation is preformed on an $n \times r$ matrix $A$, the result is the same as the matrix $EA$.
+\end{theorem}
+
+\begin{theorem}
+	Each elementary matrix is invertible, and its inverse is an elementary matrix of the same type.
+\end{theorem}
+
+\begin{theorem}
+	\paragraph{The Fundamental THeorem of Invertible matrices: Version 1}
+	
+	Let $A$ be an $n \times n$ matrix. The folowing statements are equivalent:
+	
+	\begin{enumerate}
+		\item A is invertible
+		\item $A \textbf{x} = \textbf{b}$ has a unique solution for every \textbf{b} in $\mathcal{R}^n$
+		\item $A \textbf{x} = \textbf{0}$ has only the trivial solution.
+		\item The reduced row echelon  form of $A$ is $I_n$.
+		\item $A$ is a product of elementary matrices.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	Let $A$ be a square matrix. If $B$ is a square matrix such that either $AB = I$ or $BA = I$, then $A$ is invertible and $B = A^{-1}$
+\end{theorem}
+
+\begin{theorem}
+	Let $A$ be a square matrix. If a sequence of elementary row operations reduces $A$ to $I$, then the same sequence of elementary row operations that transforms $I$ into $A^{-1}$.
+\end{theorem}
+
+\subsection{The LU Factorization}
+This section was ignored in class
+
+\subsection{Subspace, Basis, Dimension, Rank}
+
+\begin{definition}
+	\hl{A \textbf{subspace} of $\mathcal{R}^n$ is any collection $S$ of vectors in $\mathcal{R}^n$ such that}
+	\begin{enumerate}
+		\item The zero vector \textbf{0} is in $S$.
+		\item If \textbf{u} and \textbf{v} are in $S$ then $\textbf{u} + \textbf{v}$ is in $S$. ($S$ is \textbf{closed under addition})
+		\item if \textbf{u} is in $S$ and $c$ is a scalar then $c$ is a scalar, then $c\textbf{u}$ is in $S$. ($S$ is \textbf{closed under scalar multiplication})
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Let $v_1, v_2, \dots, v_k$ be vectors in $\mathcal{R}^n$. then $span(v_1, v_2, \dots, v_k)$ is a subspace of $\mathcal{R}^n$.
+\end{theorem}
+
+\begin{definition}
+	\hl{Let $A$ be an $m \times n$ matrix}
+	\begin{enumerate}
+		\item The \textbf{row space} of $A$ is the subspace $row(A)$ of $\mathcal{R}^n$ spanned by the rows of $A$
+		\item The \textbf{column space} of A is the subspace $col(A)$ of $\mathcal{R}^n$ spanned by the columns of $A$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Let $B$ be any matrix that is row equivalent to a matrix $A$ then $row(B) = row(A)$. 
+\end{theorem}
+
+\begin{theorem}
+	Let $A$ be a $m \times n$ matrix and let $N$ be the set of solutions of the momogeneous linear system $A\textbf{x} = \textbf{0}$. Then $N$ is a subspace of $\mathcal{R}$.
+\end{theorem}
+
+\begin{definition}
+	Let $A$ be an $m \times n$ matrix. The \textbf{null space} of $A$ is the subspace of $\mathcal{R}^n$ consisting of solutions of the homogeneous linear system $A\textbf{x} = \textbf{0}$. It is denoted by $null(A)$
+\end{definition}
+
+\begin{theorem}
+	Let $A$ be a matrix whose entries are real numbers, for any system of linear equations $A \textbf{x} = \textbf{b}$, exactly one of the following is true
+	\begin{enumerate}
+		\item There is no solution
+		\item There is a unique solution
+		\item There are infinitely many solution
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+	\hl{
+		A \textbf{basis} for a subspace $S$ of $\mathcal{R}^n$ is a set of vectors in $S$ that
+	}
+	\begin{enumerate}
+		\item spans $S$
+		\item Is linear independent.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	\paragraph{The basis Theorem}
+	Let $S$ be a subspace of $\mathcal{R}^n$. Then any two bases for $S$ have the same number of vectors.
+\end{theorem}
+
+\begin{definition}
+	If $S$ is a subspace of $\mathcal{R}^n$ , then the number of vectors in a basis for $S$ is called the \textbf{dimension} of $S$, denoted $dim(S)$
+\end{definition}
+
+\begin{theorem}
+	The row and column space of a matrix $A$ have the same dimension.
+\end{theorem}
+
+\begin{definition}
+	\hl{The \textbf{rank} of a matrix $A$ is the dimension of its row and column spaces and is denoted by $rank(A)$}
+\end{definition}
+
+\begin{theorem}
+	For any matrix $A$,
+	\[
+	rank(A^T) = rank(A)
+	\]
+\end{theorem}
+
+\begin{definition}
+	The \textbf{nullity}  of a matrix $A$ is the dimension of its null space and is denoted by $nullity(A)$
+\end{definition}
+
+\begin{theorem}
+	\paragraph{The Rank Theorem}
+	If $A$ is an $m \times n$ matrix then
+	\[
+	rank(A) + nullity(A) = n
+	\]
+\end{theorem}
+
+\begin{theorem}
+	\paragraph{The Fundimental Theorem of Invertible matricies: Version 2}
+	%TODO%
+\end{theorem}
+
+\begin{theorem}
+	Let $A$ be a $m \times n$ matrix. Then:
+	\begin{enumerate}
+		\item $rank(A^T A) = rank(A)$
+		\item The $n \times n$ matrix $A^T A$ is invertible if and only if $rank(A)
+ = n$
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	Let $S$ be a subspace of $\mathcal{R}^n$ and let $\mathcal{B} = \{v_1, v_2, \dots, v_k \}$ be the basis for $S$. For every vector \textbf{v} in $S$, there is exactly one way to write \textbf{v} as a linear combination of the basis in $\mathcal{B}$:
+	\[
+	\textbf{v} = 
+	c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k + \textbf{v}_k
+	\]
+\end{theorem}
+
+\begin{definition}
+	Let $S$ be a subspace of $\mathcal{R}^n$ and let $\mathcal{B} = \{v_1, v_2, \dots, v_k \}$ be the basis for $S$. Let \textbf{v} be a vector in $S$, and write $\textbf{v} = c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k + \textbf{v}_k$. Then $c_1, c_2, \dots, c_k$ are called the \textbf{coordinates of v with respect to $\mathcal{b}$} and the column vector
+	\[
+		\left[ \textbf{v} \right]_{\mathcal{B}} = 
+		\begin{bmatrix}
+		c_{1}\\
+		c_{2}\\
+		\vdots \\
+		c_{k}
+		\end{bmatrix}
+	\]
+	is called the \textbf{coordinate vector of v with respect to $\mathcal{B}$}
+\end{definition}
+
+
+\subsection{Introduction to Linear Transformations}
+
+\begin{definition}
+	A linear transformation between two vector spaces $v$ and $w$ is a map $T: v \rightarrow w$ such that the following holds;
+	\[
+	T(\textbf{v}_1 + \textbf{v}_2) = T(\textbf{v}_1) + T(\textbf{v}_2)
+	\]
+	\[
+	T(c \times \textbf{v}_1) = c \times T(\textbf{v}_1)
+	\]
+\end{definition}
+
+\begin{definition}
+	Let $T: \mathcal{R}^m \rightarrow \mathcal{R}^n$ and $S: \mathcal{R}^n \rightarrow \mathcal{R}^p$ be linear transformations. Then $S \circ T: \mathcal{R}^m \rightarrow \mathcal{R}^p$ is a linear transformation. Moreover, their standard matricies are related by,
+	\[
+	\left[ S \circ T \right] = \left[ S \right] \left[ T \right]
+	\]
+\end{definition}
+
+
+\begin{definition}
+	Let S and T be linear transformations from $\mathcal{R}^n$ to $\mathcal{R}^n$. Then S and T are \underline{inverse transformations} if $S \circ T = I_n$ and $T \circ S = I_n$
+\end{definition}
+
+
+\begin{definition}
+	Let $T: \mathcal{R}^n \rightarrow \mathcal{R}^n$ be an invertible linear transformations.Then the standard matrix $\left[ T \right]$ is an invertible matrix. Thus  $\left[ T^{-1} \right] =  \left[ T \right]^{-1}$
+\end{definition}
+
+\subsection{Markov Chains}
+%TODO%
+
+\newpage
+\section{Eigen}
+\subsection{Introduction to Eigenvalues and Eigenvectors}
+
+\begin{definition}
+	Let $A$ be an $n \times n$ matrix. A scalar $\lambda$ is called an \textbf{eigenvalue} of $A$ if there is a non-zero vector \textbf{x} such that $A\textbf{x} = \lambda \textbf{x}$. Such a vector \textbf{x} is called a \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+\end{definition}
+
+\begin{definition}
+	Let $A$ be an $n \times n$ matrix and let $\lambda$ be an eigenvalue of $A$. The collection of all eigenvectors corresponding to $\lambda$, together with the zero vector, is called the \textbf{eigenspace} of $\lambda$ and is denoted $E_\lambda$.
+\end{definition}
+
+\subsection{Determinants}
+
+\begin{definition}
+	Let $A = 
+		\begin{bmatrix}
+			a_{1,1} & a_{1,2}  & a_{1,3}\\
+			a_{2,1} & a_{2,2}  & a_{2,3}\\
+			a_{3,1} & a_{3,2}  & a_{3,3}\\
+		\end{bmatrix}
+	$. Then the \textbf{determinatnt} of $A$ is the scalar
+	\[
+	det(A) = |A| = a_{1,1} 
+	\begin{bmatrix}
+	a_{2,2} & a_{2,3} \\
+	a_{3,2} & a_{3,3} \\
+	\end{bmatrix} 
+	-
+	 a_{1,2} 
+	\begin{bmatrix}
+	a_{2,1} & a_{2,3} \\
+	a_{3,1} & a_{3,3} \\
+	\end{bmatrix}
+	+
+	a_{1,3} 
+	\begin{bmatrix}
+	a_{2,1} & a_{2,2} \\
+	a_{3,1} & a_{3,2} \\
+	\end{bmatrix}
+	\]
+\end{definition}
+
+\begin{definition}
+	Let $A = [a_{ij}]$ be an $n \times n$ matrix, where $n \geq 2$. Then the \textbf{determinant} of $A$ is the scalar
+	\[
+	\] 
+\end{definition}
+
+\subsection{Eigenvalues and Eigenvectors of n $\times$ n Matrix}
+%TODO%
+
+
+\subsection{Similarity and Diagonalization}
+
+
+\section{Orthogonality}
+This section was not covered in class
+
+\section{Vector Spaces}
+\subsection{Vector Spaces and Subspaces}
+
+		
+\end{document}

@@ -1,0 +1,215 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{color,soul}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+		language=Python,
+		basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+		\pythonstyle
+		\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{multicol}
+
+\newenvironment{lemma}{\paragraph{Lemma:\hfill}}{}
+\newenvironment{proof}{\paragraph{Proof:\hfill}}{\hfill$\square$}
+\newenvironment{proofMathInduct}{\paragraph{Proof by Mathematical Induction:\hfill}}{\hfill$\square$}
+\newenvironment{proofMathInductStrong}{\paragraph{Proof by Mathematical Induction (Strong Form):\hfill}}{\hfill$\square$}
+\newenvironment{proofContradiction}{\paragraph{Proof by contradiction: \hfill}}{\hfill$\square$}
+
+\newenvironment{theorem}{\paragraph{Theorem:\hfill}}{\hfill}
+\newenvironment{definition}{
+	\paragraph{Definition: } 
+	\hfill
+	\\
+	\indent  
+}{\hfill}
+
+\title{Linear Algebra Final Study Guide}
+\author{Andrew Reed}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{The Definitions}
+
+\begin{definition}
+	A vector $\textbf{v}$ is a \textbf{linear combination} of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ if there are scalars, $c_1, c_2, \dots, c_k$ such that $\textbf{v} = c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k + \textbf{v}_k$.
+\end{definition}
+
+\begin{definition}
+	If $S = {\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k}$, is a set of vectors in $\mathcal{R}^n$, then the set of all linear combinations of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ is called a \textbf{span} of $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ and denoted by $span(\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k)$ or $span(S) $.
+\end{definition}
+
+\begin{definition}
+	A set of vectors $\textbf{v}_1, \textbf{v}_2, \dots, \textbf{v}_k$ is \textbf{linear dependent} if the scalars $c_1, c_2, \dots, c_k$, at least one of which is not zero, such that
+	\[
+	c_1 \times \textbf{v}_1 + c_2 \times \textbf{v}_2 + \dots + c_k \times \textbf{v}_k = 0
+	\]
+\end{definition}
+
+\begin{definition}
+	A \textbf{basis} for a subspace $S$ of $\mathcal{R}^n$ is a set of vectors in $S$ that
+	\begin{enumerate}
+		\item spans $S$
+		\item Is linear independent.
+	\end{enumerate}
+\end{definition}
+
+
+
+\newpage
+
+
+\section{Basic Vector Mathematics}
+
+\paragraph{Finding vectors from points}
+\hfill
+\\
+\indent Given two points $P(a, b)$ and $Q(c, d)$ then a vector $\textbf{v}$ where $\textbf{v} = PQ$, then; 
+\[
+\textbf{v} = 
+\begin{bmatrix}
+	c - a \\
+	d - b \\
+\end{bmatrix}
+\]
+
+\paragraph{Unit Vectors}
+\hfill
+\\
+\indent Given a vector \textbf{v} the unit vector for said vector is
+\[
+	\left( \frac{1}{||\textbf{v}||} \right)  \textbf{v}
+\]
+
+\paragraph{Distance}
+\hfill
+\\
+\indent The distance between two vectors is denoted $d(\textbf{u}, \textbf{v})$ and defined as
+\[
+	d(\textbf{u}, \textbf{v})) = || \textbf{u} - \textbf{v} ||
+\]
+
+
+
+\section{Eigenvalues, Eigenvectors and Eigenspaces}
+
+\section{Standard Matrix}
+
+\newpage
+
+\section{Spans}
+
+\paragraph{Spans of Matrices}
+Find $span(A_1, A_2)$ given 
+\[
+a_1 = 
+\begin{bmatrix}
+1 & 2 \\
+-1 & 4 \\
+\end{bmatrix}
+,
+A_2 = 
+\begin{bmatrix}
+0 & 1 \\
+3 & 4 \\
+\end{bmatrix}
+\]
+
+\underline{Step 1}: Establish an augmented matrix.
+\[
+\begin{bmatrix}
+	1  & 0 & | &a\\
+	2  & 1 & | & b\\
+	-1  & 3 & | & c\\
+	4  & 4 & | & d\\
+\end{bmatrix}
+\]
+
+\underline{Step 2}: Row reduce to row echelon form
+
+\[
+\begin{bmatrix}
+1  & 0 & | &a\\
+2  & 1 & | & b\\
+-1  & 3 & | & c\\
+4  & 4 & | & d\\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+1  & 0 & | &a\\
+0  & 1 & | & b - 2a\\
+0  & 0 & | & 7a - 3b + c\\
+0  & 0 & | & 4a - 4b + d\\
+\end{bmatrix}
+\]
+
+\underline{Step 3}: Solve for 0 in rows which contain all 0's
+\[
+7a - 3b + c = 0
+\]
+\[
+c = -7a + 3b
+\]
+\hfill
+\\
+\[
+4a - 4b + d = 0
+\]
+\[
+d = -4a - 4b
+\]
+
+\underline{Step 4}: use the values obtained to create a matrix
+\[
+\begin{bmatrix}
+	a & b-2a \\
+	-7a + 3b & -4a + 4b \\
+\end{bmatrix}
+\]
+\end{document}

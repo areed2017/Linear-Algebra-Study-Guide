@@ -1,0 +1,342 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 MAY 2019 13:37
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**document.tex
+(./document.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen103
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks17
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks18
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks21
+\SOUL@lasttoken=\toks22
+\SOUL@cmds=\toks23
+\SOUL@buffer=\toks24
+\SOUL@token=\toks25
+\SOUL@spaceskip=\skip46
+\SOUL@ttwidth=\dimen112
+\SOUL@uldp=\dimen113
+\SOUL@ulht=\dimen114
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip47
+\f@nch@O@elh=\skip48
+\f@nch@O@erh=\skip49
+\f@nch@O@olh=\skip50
+\f@nch@O@orh=\skip51
+\f@nch@O@elf=\skip52
+\f@nch@O@erf=\skip53
+\f@nch@O@olf=\skip54
+\f@nch@O@orf=\skip55
+)
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 10.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/txfonts/t1txtt.fd
+File: t1txtt.fd 2000/12/15 v3.1
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks26
+)
+\lst@mode=\count100
+\lst@gtempboxa=\box28
+\lst@token=\toks27
+\lst@length=\count101
+\lst@currlwidth=\dimen115
+\lst@column=\count102
+\lst@pos=\count103
+\lst@lostspace=\dimen116
+\lst@width=\dimen117
+\lst@newlines=\count104
+\lst@lineno=\count105
+\lst@maxwidth=\dimen118
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count106
+\lst@skipnumbers=\count107
+\lst@framebox=\box29
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count108
+\U@D=\dimen119
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count109
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
+\c@tracingmulticols=\count110
+\mult@box=\box30
+\multicol@leftmargin=\dimen120
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
+\full@width=\dimen121
+\page@free=\dimen122
+\premulticols=\dimen123
+\postmulticols=\dimen124
+\multicolsep=\skip56
+\multicolbaselineskip=\skip57
+\partial@page=\box31
+\last@line=\box32
+\maxbalancingoverflow=\dimen125
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
+\last@try=\dimen126
+\multicolovershoot=\dimen127
+\multicolundershoot=\dimen128
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+\mc@col@check@num=\count118
+)
+(./document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+
+(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count119
+\scratchdimen=\dimen129
+\scratchbox=\box56
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen130
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
+\everyMPtoPDFconversion=\toks29
+)
+\c@lstlisting=\count125
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (17.267pt too wide) in paragraph at lines 331--332
+[]\OT1/cmr/m/n/12 A set of vec-tors $[][]\OML/cmm/m/it/12 ; [][]; [] ; [][]$ \O
+T1/cmr/m/n/12 is \OT1/cmr/bx/n/12 lin-ear de-pen-dent \OT1/cmr/m/n/12 if the sc
+alars $\OML/cmm/m/it/12 c[]; c[]; [] ; c[]$\OT1/cmr/m/n/12 ,
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 425--427
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--440
+
+ []
+
+[11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (2.78194pt too wide) in paragraph at lines 723--725
+ \OT1/cmr/bx/n/12 Def-i-ni-tion: [] \OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 T \OT
+1/cmr/m/n/12 : \OMS/cmsy/m/n/12 R[] ! R[]$ \OT1/cmr/m/n/12 be an in-vert-ible l
+in-ear trans-for-ma-tions.Then
+ []
+
+[18] [19] (./document.aux) ) 
+Here is how much of TeX's memory you used:
+ 4011 strings out of 492649
+ 52578 string characters out of 6129622
+ 134974 words of memory out of 5000000
+ 7862 multiletter control sequences out of 15000+600000
+ 14346 words of font info for 54 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 27i,12n,43p,431b,368s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb>
+Output written on document.pdf (19 pages, 158250 bytes).
+PDF statistics:
+ 106 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
